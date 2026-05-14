@@ -2,7 +2,7 @@
 
 $students = [
 
-    ["roll"=>1,"name"=>"Viren","city"=>"Ahmedabad","php"=>85,"mysql"=>78,"html"=>90,"js"=>88,"python"=>80],
+    ["roll"=>1,"name"=>"Virendrasinh","city"=>"Junagadh","php"=>95,"mysql"=>98,"html"=>92,"js"=>95,"python"=>94],
 
     ["roll"=>2,"name"=>"Rahul","city"=>"Surat","php"=>70,"mysql"=>65,"html"=>75,"js"=>72,"python"=>68],
 
@@ -12,11 +12,11 @@ $students = [
 
     ["roll"=>5,"name"=>"Sneha","city"=>"Bhavnagar","php"=>88,"mysql"=>84,"html"=>86,"js"=>90,"python"=>85],
 
-    ["roll"=>6,"name"=>"Karan","city"=>"Jamnagar","php"=>45,"mysql"=>50,"html"=>48,"js"=>52,"python"=>47],
+    ["roll"=>6,"name"=>"Karan","city"=>"Jamnagar","php"=>45,"mysql"=>40,"html"=>42,"js"=>52,"python"=>47],
 
     ["roll"=>7,"name"=>"Neha","city"=>"Anand","php"=>76,"mysql"=>79,"html"=>74,"js"=>80,"python"=>78],
 
-    ["roll"=>8,"name"=>"Ravi","city"=>"Gandhinagar","php"=>35,"mysql"=>40,"html"=>38,"js"=>42,"python"=>36]
+    ["roll"=>8,"name"=>"Ravi","city"=>"Gandhinagar","php"=>55,"mysql"=>45,"html"=>70,"js"=>65,"python"=>63]
 
 ];
 
@@ -66,13 +66,73 @@ $lowest = min($percentages);
 <html>
 <head>
     <title>Student Result Sheet</title>
+
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            padding: 20px;
+        }
+
+        h1{
+            text-align: center;
+            color: teal;
+        }
+
+        table{
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+
+        th{
+            background: teal;
+            color: white;
+            padding: 12px;
+        }
+
+        td{
+            padding: 10px;
+            text-align: center;
+        }
+
+        tr:nth-child(even){
+            background: #f9f9f9;
+        }
+
+        tr:hover{
+            background: #e6f7ff;
+        }
+
+        .gold{
+            background: gold !important;
+        }
+
+        .silver{
+            background: silver !important;
+        }
+
+        .bronze{
+            background: #cd7f32 !important;
+            color: white;
+        }
+
+        .summary{
+            background: lightblue;
+            font-weight: bold;
+        }
+
+    </style>
+
 </head>
 
 <body>
 
-<h2>Student Result Sheet</h2>
+<h1>Student Result Sheet Generator</h1>
 
-<table border="1" cellpadding="10">
+<table border="1">
 
 <tr>
 
@@ -99,9 +159,21 @@ foreach($students as $s){
 
     if($s["percentage"] >= 40){
 
+        $class = "";
+
+        if($rank == 1){
+            $class = "gold";
+        }
+        elseif($rank == 2){
+            $class = "silver";
+        }
+        elseif($rank == 3){
+            $class = "bronze";
+        }
+
 ?>
 
-<tr>
+<tr class="<?php echo $class; ?>">
 
     <td><?php echo $rank; ?></td>
     <td><?php echo $s["roll"]; ?></td>
@@ -127,23 +199,23 @@ foreach($students as $s){
 
 ?>
 
-<tr>
+<tr class="summary">
 
-    <td colspan="10"><b>Class Average</b></td>
+    <td colspan="10">Class Average</td>
     <td colspan="2"><?php echo number_format($classAverage,2); ?>%</td>
 
 </tr>
 
-<tr>
+<tr class="summary">
 
-    <td colspan="10"><b>Highest Score</b></td>
+    <td colspan="10">Highest Score</td>
     <td colspan="2"><?php echo $highest; ?>%</td>
 
 </tr>
 
-<tr>
+<tr class="summary">
 
-    <td colspan="10"><b>Lowest Score</b></td>
+    <td colspan="10">Lowest Score</td>
     <td colspan="2"><?php echo $lowest; ?>%</td>
 
 </tr>
