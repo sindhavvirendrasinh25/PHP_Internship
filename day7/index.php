@@ -14,19 +14,23 @@ if(isset($_POST['submit'])){
     $std = $_POST['std'];
 
     $sql = "INSERT INTO student(
-                student_name,
-                student_roll_no,
-                student_age,
-                student_city,
-                student_std
+
+            student_name,
+            student_roll_no,
+            student_age,
+            student_city,
+            student_std
+
             )
 
             VALUES(
-                '$name',
-                '$roll_no',
-                '$age',
-                '$city',
-                '$std'
+
+            '$name',
+            '$roll_no',
+            '$age',
+            '$city',
+            '$std'
+
             )";
 
     mysqli_query($conn, $sql);
@@ -48,13 +52,14 @@ $result = mysqli_query($conn, $fetch);
 <!DOCTYPE html>
 <html>
 <head>
+
     <title>Student Management System</title>
 
     <style>
 
         body{
             font-family: Arial;
-            background: #f4f4f4;
+            background: #f4f4f6;
             padding: 20px;
         }
 
@@ -63,7 +68,7 @@ $result = mysqli_query($conn, $fetch);
         }
 
         .btn{
-            background: green;
+            background: linear-gradient(45deg, #6a11cb, #2575fc);
             color: white;
             padding: 10px 20px;
             border: none;
@@ -97,31 +102,50 @@ $result = mysqli_query($conn, $fetch);
             margin: 30px auto;
             border-collapse: collapse;
             background: white;
-        }
-
-        table, th, td{
-            border: 1px solid black;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(0,0,0,0.2);
         }
 
         th{
-            background: #ee69c6;
+            background: linear-gradient(45deg, #ff416c, #ff4b2b);
             color: white;
+            padding: 15px;
+            font-size: 18px;
         }
 
-        th, td{
+        td{
             padding: 12px;
             text-align: center;
         }
 
-        .delete-btn{
-            background: red;
+        tr:nth-child(even){
+            background: #f2f2f2;
+        }
+
+        tr:hover{
+            background: #ffeaa7;
+        }
+
+        .edit-btn{
+            background: #00b894;
             color: white;
             padding: 8px 12px;
             text-decoration: none;
             border-radius: 5px;
         }
-    
 
+        .delete-btn{
+            background: #d63031;
+            color: white;
+            padding: 8px 12px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        .top-buttons{
+            margin-bottom: 20px;
+        }
 
     </style>
 
@@ -159,12 +183,12 @@ $result = mysqli_query($conn, $fetch);
                required>
 
         <input type="text"
-               name="std" 
+               name="std"
                placeholder="Enter Standard"
                required>
 
         <button class="btn" type="submit" name="submit">
-            submit
+            Save Student
         </button>
 
         <br><br>
@@ -181,9 +205,17 @@ $result = mysqli_query($conn, $fetch);
 
     ?>
 
-    <a href="index.php?add=1" class="btn">
-        Add Student
-    </a>
+    <div class="top-buttons">
+
+        <a href="index.php?add=1" class="btn">
+            Add Student
+        </a>
+
+        <a href="search.php" class="btn">
+            Search Student
+        </a>
+
+    </div>
 
     <table>
 
@@ -219,14 +251,17 @@ $result = mysqli_query($conn, $fetch);
 
             <td>
 
-    
+                <a class="edit-btn"
+                   href="edit.php?id=<?php echo $row['student_id']; ?>">
+                   Edit
+                </a>
 
-    <a class="delete-btn"
-       href="delete.php?id=<?php echo $row['student_id']; ?>">
-       Delete
-    </a>
+                <a class="delete-btn"
+                   href="delete.php?id=<?php echo $row['student_id']; ?>">
+                   Delete
+                </a>
 
-</td>
+            </td>
 
         </tr>
 
