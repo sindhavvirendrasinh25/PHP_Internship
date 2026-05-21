@@ -1,0 +1,114 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+
+/* FORM PAGE */
+
+.form-body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: linear-gradient(135deg, #eaa8d2, #c399ee);
+}
+
+.form-box {
+    width: 350px;
+    background: white;
+    padding: 30px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+.form-box h2 {
+    margin-bottom: 20px;
+}
+
+.form-box input,
+.form-box select {
+    width: 100%;
+    padding: 12px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    outline: none;
+}
+
+.form-box button {
+    width: 100%;
+    padding: 12px;
+    background: #dc70bd;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 10px;
+    font-size: 16px;
+}
+
+.form-box button:hover {
+    background: #98ed81;
+}
+
+.form-box a {
+    display: block;
+    margin-top: 15px;
+    text-decoration: none;
+    color: #e5995a;
+}
+
+.msg {
+    color: red;
+    margin-bottom: 10px;
+}
+
+
+/* DASHBOARD */
+
+.dashboard-body {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #f4f4f4;
+}
+
+.dashboard-box {
+    width: 500px;
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.dashboard-box h1 {
+    margin-bottom: 20px;
+}
+
+.info p {
+    margin: 15px 0;
+    font-size: 20px;
+}
+
+.logout-btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    background: red;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}
+
+.logout-btn:hover {
+    background: darkred;
+}
