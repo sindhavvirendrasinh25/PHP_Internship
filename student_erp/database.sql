@@ -1,0 +1,44 @@
+CREATE DATABASE student_erp;
+
+USE student_erp;
+
+CREATE TABLE users(
+id INT AUTO_INCREMENT PRIMARY KEY,
+name VARCHAR(100),
+email VARCHAR(100) UNIQUE,
+password VARCHAR(255),
+role ENUM('admin','faculty','student')
+);
+
+CREATE TABLE courses(
+id INT AUTO_INCREMENT PRIMARY KEY,
+course_name VARCHAR(100)
+);
+
+CREATE TABLE attendance(
+id INT AUTO_INCREMENT PRIMARY KEY,
+student_id INT,
+attendance_date DATE,
+status VARCHAR(20)
+);
+
+CREATE TABLE marks(
+id INT AUTO_INCREMENT PRIMARY KEY,
+student_id INT,
+subject VARCHAR(100),
+marks INT
+);
+
+CREATE TABLE assignments(
+id INT AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(255),
+file VARCHAR(255),
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+CREATE TABLE notices(
+id INT AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(255),
+description TEXT,
+created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
